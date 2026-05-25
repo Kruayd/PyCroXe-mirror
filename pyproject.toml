@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling >= 1.27", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+dynamic = ["version"]
+name = "pycroxe"
+authors = [
+    { name="Luca Cinnirella", email="luca.cinnirella@protonmail.com" },
+]
+description = "Python API for CroXe: a relational database of cross-sections and rate coefficients for atomic processes and alike."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=1.26",
+    "xarray>=2024.1",
+    "sqlalchemy>=2.0",
+    "mariadb>=1.1",
+]
+keywords = [
+    "physics",
+    "atomic-physics",
+    "nuclear-physics",
+    "plasma-physics",
+    "cross-sections",
+    "rate-coefficients",
+    "database",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0-or-later"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://codeberg.org/Kruayd/PyCroXe"
+#Documentation = "https://readthedocs.org"
+Repository = "https://codeberg.org/Kruayd/PyCroXe"
+Issues = "https://codeberg.org/Kruayd/PyCroXe/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pycroxe"]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/pycroxe/_version.py"
