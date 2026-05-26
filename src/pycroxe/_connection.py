@@ -92,7 +92,7 @@ class CroXeConnection:
     database : str, optional
         Database to be used (default: ``CroXe``).
 
-    **engine_kwargs : dict, optional
+    engine_kwargs : dict, optional
         Extra keyword arguments forwarded verbatim to
         :py:func:`sqlalchemy.engine.create_engine`
         (e.g. ``pool_pre_ping=True``).
@@ -263,7 +263,7 @@ def connect(
     database : str, optional
         Database to be used (default: ``CroXe``).
 
-    **engine_kwargs : dict, optional
+    engine_kwargs : dict, optional
         Extra keyword arguments forwarded verbatim to
         :py:func:`sqlalchemy.engine.create_engine`
         (e.g. ``pool_pre_ping=True``).
