@@ -5,6 +5,7 @@ build:
   tools:
     python: "latest"
   apt_packages:
+    - mariadb-server
     - mariadb-client
 
 python:
