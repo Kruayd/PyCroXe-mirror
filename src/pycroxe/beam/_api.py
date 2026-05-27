@@ -86,9 +86,9 @@ def get_cross_sections_by_projectiles(
     The structure of the returned :py:class:`xarray.DataArray` is such that it
     can be useful in solving problems of the like
 
-    ..math:: \frac{d\Gamma_i}{dx} = n(x)\sigma_{ij}\Gamma_j\text{,}
+    .. math:: \frac{d\Gamma_i}{dx} = n(x)\sigma_{ij}\Gamma_j\text{,}
 
-    where :math:`\Gamma_i` and :math`\Gamma_j` are respectively the particle
+    where :math:`\Gamma_i` and :math:`\Gamma_j` are respectively the particle
     fluxes of the i-th product and the j-th species, while :math:`\sigma_{ij}`
     is the cross-section of the process that trasnforms the j-th projectile into
     the i-th product.
