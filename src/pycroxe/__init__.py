@@ -80,7 +80,7 @@ It is also possible, but not advisable, to get direct access to the
 :py:class:`pycroxe.CroXeConnection` class. In this case, the caller will be
 responsible for closing the connection::
 
-    from croxe import CroXeConnection
+    from pycroxe import CroXeConnection
 
     conn = CroXeConnection()
     conn.open()
