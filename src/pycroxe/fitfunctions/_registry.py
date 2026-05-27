@@ -113,18 +113,6 @@ class FitFunction(_Protocol):
         ...
 
 
-#: Dictionary mapping ``CroXe.fit_templates.function_name`` values to their
-#: Python implementation.
-#:
-#: Type
-#: ------
-#: dict[str, FitFunction]
-#:     with:
-#:     * ``key``: ``function_name`` in ``CroXe.fit_templates``
-#:     * ``value``: a public function, from any of
-#:         :py:mod:`pycroxe.fitfunctions` private sub-modules, that is an
-#:         implementation of ``key``. The function must share its signature with
-#:         the :py:class:`pycroxe.fitfunctions.FitFunction` protocol.
 REGISTRY: dict[str, FitFunction] = {
     "CHEB": cheb,
     "TAB2_1_1": tab2_1_1,
