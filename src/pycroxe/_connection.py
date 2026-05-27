@@ -178,10 +178,10 @@ class CroXeConnection:
 
     def get_table_by_name(self, tablename: str) -> _Table:
         """
-        *Reflect* requested table into a :py:class`sqlalchemy.schema.Table`
+        *Reflect* requested table into a :py:class:`sqlalchemy.schema.Table`
         object and return it. Tables that have been already *reflected* once
         won't be *reflected* again: the method will just return the existing
-        :py:class`sqlalchemy.schema.Table` object.
+        :py:class:`sqlalchemy.schema.Table` object.
 
         Parameters
         ----------
@@ -190,8 +190,8 @@ class CroXeConnection:
 
         Returns
         -------
-        table : :py:class`sqlalchemy.schema.Table`
-            SQLAlchemy :py:class`sqlalchemy.schema.Table` object reflecting the
+        table : :py:class:`sqlalchemy.schema.Table`
+            SQLAlchemy :py:class:`sqlalchemy.schema.Table` object reflecting the
             corresponding CroXe table.
         """
         return _Table(tablename, self._metadata, autoload_with=self._engine)
