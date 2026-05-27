@@ -98,3 +98,24 @@ References
 from ._registry import FitFunction, REGISTRY, get_fit_function
 
 __all__: list[str] = ["FitFunction", "REGISTRY", "get_fit_function"]
+
+# Sphinx sees REGISTRY as a variable belonging to pycroxe.fitfunctions, hence
+# it tries to look for its corresponding variable docstring here, when it
+# actually should be found in pycroxe.fitfunctions._registry.
+# With this hack we are just pretending to redefine REGISTRY, so that a
+# variable docstring can be attached to it.
+
+#: Dictionary mapping ``CroXe.fit_templates.function_name`` values to their
+#: Python implementation.
+#:
+#: Type
+#: ------
+#: dict[str, FitFunction]
+#:     with:
+#:
+#:     * ``key``: ``function_name`` in ``CroXe.fit_templates``
+#:     * ``value``: a public function, from any of
+#:         :py:mod:`pycroxe.fitfunctions` private sub-modules, that is an
+#:         implementation of ``key``. The function must share its signature with
+#:         the :py:class:`pycroxe.fitfunctions.FitFunction` protocol.
+REGISTRY = REGISTRY
