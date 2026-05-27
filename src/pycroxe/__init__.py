@@ -1,20 +1,11 @@
 """
 ========
-pycroxe
+PyCroXe
 ========
 
 Python API for CroXe: a relational database of cross-sections and rate
 coefficients for atomic processes and alike. If you are lookig for the database
 itself, see `CroXe <https://codeberg.org/Kruayd/CroXe>`_.
-
-Sub-modules
------------
-
-.. autosummary::
-    :toctree: generated/
-
-    beam
-    fitfunctions
 
 Classes
 -------
@@ -42,39 +33,45 @@ Generic data retrieval
 
 Usage
 -----
-The recommended entry point for most use cases::
+This root module provides, through the function :py:func:`pycroxe.connect` and
+the class :py:class:`pycroxe.CroXeConnection`, the basic interface to manage
+connections with any instance of CroXe.
 
-    import numpy as np
-    from pycroxe import connect, get_species_properties
-    from pycroxe.beam import get_cross_sections_by_projectiles
+While :py:class:`pycroxe.CroXeConnection` is provided mainly for type hinting,
+the recommended usage of :py:func:`pycroxe.connect` is within a ``with``
+statement::
 
-    energies = np.geomspace(10, 1e5, 200)  # eV
+    from pycroxe import connect
 
     with connect() as conn:
-        sigma = get_cross_sections_by_projectiles(
-            conn,
-            energies,
-            initial_projectiles=["H3+", "H2+", "H+"],
-            target="H2",
-        )
+        ...
 
-        species_data = get_species_properties(
-            conn,
-            sigma.coords["product"].to_numpy().tolist(),
-        )
+which will return a :py:class:`pycroxe.CroXeConnection` instance acting as a
+context manager (i.e. will take care of opening and closing connections
+automatically).
 
-See :py:mod:`pycroxe.beam` for full documentation of available queries and
-cross-section retrieval, and :py:mod:`pycroxe.fitfunctions` for the fit
+You can change the default connection URL
+(``mariadb+mariadbconnector://croxe-guest@localhost/CroXe``) by, in order of
+decreasing precedence:
+
+#. passing a valid URL as an argument to :py:func:`pycroxe.connect`
+#. setting the environment variable ``CROXE_DB`` to a valid URL
+#. changing specific parts of the default URL with :py:func:`pycroxe.connect`
+   keyword arguments
+
+You get also access to some
+`generic data retrieval functions <Generic data retrieval_>`_, such as
+:py:func:`pycroxe.get_species_properties`.
+
+See :py:mod:`pycroxe.beam` for full documentation of more specialized queries
+and cross-section retrieval, and :py:mod:`pycroxe.fitfunctions` for the fit
 function registry.
 
 Notes
 -----
-CroXe is hosted as a MariaDB database. By default :py:func:`pycroxe.connect`
-connects to ``localhost`` as ``croxe-guest``. Override via the ``CROXE_DB``
-environment variable or by passing an explicit URL::
-
-    with connect("mariadb+mariadbconnector://user@server.institute.org/CroXe") as conn:
-        ...
+PyCroXe URLs follow the
+`SQLAlchemy pattern <https://docs.sqlalchemy.org/en/13/core/engines.html#database-urls>`_
+(``dialect+driver://username@host:port/database``)
 
 It is also possible, but not advisable, to get direct access to the
 :py:class:`pycroxe.CroXeConnection` class. In this case, the caller will be
