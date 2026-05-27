@@ -1,7 +1,7 @@
 # Welcome to PyCroXe
 
-The Python API that let you import, in your code, data from
-[CroXe](https://codeberg.org/Kruayd/CroXe) with intuitive calls and minimal
+The Python API that let you import data from
+[CroXe](https://codeberg.org/Kruayd/CroXe), with intuitive calls and minimal
 effort.
 
 If you are looking for the database itself, visit:
@@ -31,7 +31,7 @@ You can, though, clone this repo to your machine and install PyCroXe from it:
 
 ```bash
 git clone https://codeberg.org/Kruayd/PyCroXe.git
-pip install ./pycroxe
+pip install ./PyCroXe
 ```
 
 > [!IMPORTANT]
@@ -58,7 +58,7 @@ with connect() as conn:
 
     species_data = get_species_properties(
         conn,
-        sigma.coords["product"].to_numpy().tolist(),
+        symbols=sigma.coords["product"].to_numpy().tolist(),
     )
 ```
 
@@ -67,10 +67,10 @@ But please, find some time to read the rest of this README or the official docs!
 ### Connecting
 
 PyCroXe provides a `connect` function that can be used, as the name obviously
-suggest, to connect to any network-reachable instance of CroXe.
+suggests, to connect to any network-reachable instance of CroXe.
 
 The intended usage is within a `with` statement; this will make `connect`, if
-no argument is provided, return an instance of a `CroXeConnection` object,
+no argument is provided, return an instance of a `CroXeConnection` class,
 acting as a context manager, with an open connection pointing towards the
 default URL `mariadb+mariadbconnector://croxe-guest@localhost/CroXe`:
 
@@ -84,7 +84,7 @@ with connect() as conn:
 PyCroXe URLs follow the
 [SQLAlchemy pattern](https://docs.sqlalchemy.org/en/13/core/engines.html#database-urls)
 (`dialect+driver://username@host:port/database`) and can be provided to the
-`connect` function, in order of descending precedence, by
+`connect` function, in order of descending precedence, by:
 
 1. directly passing them as argument
 
@@ -116,7 +116,7 @@ PyCroXe URLs follow the
 
 > [!NOTE]
 > `connect` can also be used outside `with` statements, but notice that this
-> will return a closed instance of a `CroXeConnection` object that must be
+> will return a closed instance of a `CroXeConnection` class that must be
 > opened and closed manually with the corresponding methods:
 >
 > ```python
@@ -196,8 +196,8 @@ Coming soon!
 
 Right now you can suggest changes through
 [e-mail](mailto:luca.cinnirella@protonmail.com), but soon some more standard
-ways of contributing will be available
+ways of contributing will be available.
 
 ## License
 
-PyCroXe is free as in freedom and licensed under the [GPL v3](./LICENSE)
+PyCroXe is free as in freedom and licensed under the [GPL v3](./LICENSE).
