@@ -36,7 +36,7 @@ Database queries
 Cross-sections retrieval
 ------------------------
 
-.. autosummary
+.. autosummary::
     :toctree: generated/
 
     get_cross_sections_by_projectiles
