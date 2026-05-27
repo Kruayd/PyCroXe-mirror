@@ -5,7 +5,7 @@ build:
   tools:
     python: "latest"
   apt_packages:
-    - libmariadb3
+    - libmariadb-dev
 
 python:
   install:
