@@ -81,7 +81,7 @@ Currently implemented functions:
 
 * ``REGISTRY["CHEB"]``: a Chebyshev polynomial-based fit described by C. F.
   Barnett in [1]_
-* ``REGISTRY["TAB2_1_*"]: the 14 analytic expressions described by T. Tabata in
+* ``REGISTRY["TAB2_1_*"]``: the 14 analytic expressions described by T. Tabata in
   the first paper of [2]_
 
 References
