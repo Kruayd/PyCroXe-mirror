@@ -62,7 +62,7 @@ the cross-sections of all the necessary processes to solve your problem, given
 the initial conditions of the starting projectile species and their energies.
 
 Alternatively, you can get direct access to database queries with functions from
-section `Database queries <Database queries_>`_
+section `Database queries`_.
 
 You also get access to `classes <Data classes_>`_ and `type aliases <Types_>`_
 for type hinting in your code.
