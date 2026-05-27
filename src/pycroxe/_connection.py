@@ -226,7 +226,7 @@ def connect(
     If used outside of a ``with`` statement, create and return an *unopened*
     :py:class:`pycroxe.CroXeConnection`.
     The intended use is within a ``with`` statement, which returns instead an
-    *open* :py:class:`pycroxe.CroXeConnection`::
+    **open** :py:class:`pycroxe.CroXeConnection`::
 
         with connect() as conn:
             ...
