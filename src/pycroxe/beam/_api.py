@@ -69,7 +69,7 @@ def get_cross_sections_by_projectiles(
 
     Returns
     -------
-    cross_sections_tensor: :py:class:`xarray.DataArray`
+    cross_sections_tensor : :py:class:`xarray.DataArray`
         3-dimensional array of evaluated cross-sections with first dimension
         indexed by energy values, second dimension indexed by product species,
         and last dimension indexed by projectile species. Values where
