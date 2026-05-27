@@ -32,7 +32,7 @@ def get_species_properties(
 ) -> _Dataset:
     """
     Return properties of selected species by ``symbols`` in the form of a
-    :py:class:`xarray:Dataset`.
+    :py:class:`xarray.Dataset`.
 
     Parameters
     ----------
