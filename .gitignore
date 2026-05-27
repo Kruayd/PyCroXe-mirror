@@ -1,0 +1,12 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# hatch-vcs generated version file
+src/pycroxe/_version.py
+
+# Sphinx build output
+docs/build/
+
+# mypy cache
+.mypy_cache/
