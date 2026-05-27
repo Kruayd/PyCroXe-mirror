@@ -252,7 +252,7 @@ def connect(
     user : str, optional
         Name of the loggin user (default: ``croxe-guest``). Note that passwords
         can be used as well, by appending them with a leading colon to the
-        username, though it is *strongly discouraged* since this method exposes
+        username, though it is **strongly discouraged** since this method exposes
         the password::
 
             username:password
