@@ -43,7 +43,7 @@ def get_species_properties(
 
     Returns
     -------
-    species_properties_dataset: :py:class:`xarray.Dataset`
+    species_properties_dataset : :py:class:`xarray.Dataset`
         Dataset providing masses and charges of the retrieved species, ordered
         by species chemical symbols.
     """
