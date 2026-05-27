@@ -85,6 +85,8 @@ responsible for closing the connection::
     conn.close()
 """
 
+from ._version import __version__
+
 from ._connection import CroXeConnection, connect
 
 from ._api import get_species_properties
