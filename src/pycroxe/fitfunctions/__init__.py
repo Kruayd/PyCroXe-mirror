@@ -14,7 +14,7 @@ All registered functions share the same signature::
     ) -> NDArray[np.float64]              # cross-section in m²
 
 This allows for the evaluation layers of the various :py:mod:`pycroxe`
-sub-modules (such as :py:mod:`pycorxe.beam`) to dispatch calls without needing
+sub-modules (such as :py:mod:`pycroxe.beam`) to dispatch calls without needing
 to know which template is being used.
 
 Protocol classes
