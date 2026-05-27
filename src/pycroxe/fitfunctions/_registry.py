@@ -144,7 +144,7 @@ def get_fit_function(function_name: str) -> FitFunction:
 
     Returns
     -------
-    f : FitFunction
+    f : :py:class:`pycroxe.fitfunctions.FitFunction`
         The corresponding API implementation.
 
     Raises
