@@ -16,7 +16,7 @@ dependencies = [
     "numpy>=1.26",
     "xarray>=2024.1",
     "sqlalchemy>=2.0",
-    "mariadb>=1.1",
+    "mariadb[binary,pool]>=1.1",
 ]
 keywords = [
     "physics",
