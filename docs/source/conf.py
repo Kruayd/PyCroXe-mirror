@@ -11,7 +11,7 @@ import pycroxe
 project = "PyCroXe"
 copyright = "2026, Luca Cinnirella"
 author = "Luca Cinnirella"
-release = pycroxe.__version__
+release = ".".join(str(value) for value in pycroxe.__version_tuple__[:4])
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
