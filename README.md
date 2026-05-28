@@ -37,6 +37,16 @@ pip install ./PyCroXe
 > [!IMPORTANT]
 > PyCroXe requires Python 3.12 or newer!
 
+> [!IMPORTANT]
+> PyCroXe uses
+> [MariaDB Python Connector](https://mariadb.com/docs/connectors/connectors-quickstart-guides/connector-python-guide)
+> which, with the current 1.1.14 release, still requires the
+> [MariaDB C Connector](https://mariadb.com/docs/connectors/connectors-quickstart-guides/mariadb-connector-c-guide)
+> to successfully install. With the shortly upcoming next release, 2.0, it will
+> be possible to install MariaDB Python Connector without any external
+> dependency. If you are trying to install PyCroXe and MariaDB Python Connector
+> is still in its 1.1.14 release, please install MariaDB C Connector!
+
 ## Example usage
 
 ### tl;dr
