@@ -41,7 +41,7 @@ from typing import Literal as _Literal
 import numpy as _np
 from numpy.typing import NDArray as _NDArray
 from sqlalchemy import Row as _Row
-from sqlalchemy import UnaryExpression as _UnaryExpression
+from sqlalchemy import ColumnElement as _ColumnElement
 from sqlalchemy import select as _select
 from sqlalchemy import func as _func
 
@@ -344,11 +344,27 @@ def get_fits_by_process(
     beam_fit_params_table = conn.get_table_by_name("beam_fit_params")
     beam_fit_coefficients_table = conn.get_table_by_name("beam_fit_coefficients")
 
-    sort_column_map: dict[str, _UnaryExpression] = {
-        "rms": beam_fit_params_table.c.rms.asc().nulls_last(),
-        "year": sources_table.c.year.desc().nulls_last(),
+    sort_column_map: dict[str, list[_ColumnElement]] = {
+        # MariaDB doesn't support NULLS LAST statements
+        # According to
+        # https://mariadb.com/docs/server/reference/data-types/null-values#ordering
+        # ny NULL values are considered to have the lowest value. So ordering
+        # in ASC (default sort order) need some trick (e.g. sorting first by a
+        # column that sorts NULL last)
+        # ISNULL is MariaDB-specific!!!
+        "rms": [
+            _func.isnull(beam_fit_params_table.c.rms),
+            beam_fit_params_table.c.rms.asc(),
+        ],
+        # According to
+        # https://mariadb.com/docs/server/reference/data-types/null-values#ordering
+        # ny NULL values are considered to have the lowest value. So ordering
+        # in DESC order will see the NULL values appearing last
+        "year": [
+            sources_table.c.year.desc(),
+        ],
     }
-    order_by_clauses = [sort_column_map[k] for k in sort_by]
+    order_by_clauses = [clause for k in sort_by for clause in sort_column_map[k]]
 
     sql = (
         _select(
