@@ -190,7 +190,8 @@ with connect() as conn:
 
 ## Full documentation
 
-Coming soon!
+You can find the full documentation at
+[https://pycroxe.readthedocs.io](https://pycroxe.readthedocs.io).
 
 ## Contributing
 
