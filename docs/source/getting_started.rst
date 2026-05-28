@@ -16,17 +16,34 @@ and install PyCroXe from it:
    git clone https://codeberg.org/Kruayd/PyCroXe.git
    pip install ./PyCroXe
 
-Required dependencies
-.....................
+Required Python dependencies
+............................
 
-* Python (3.12 or later)
+These will install automatically along with PyCroXe.
+
 * `NumPy <https://numpy.org>`_ (1.26 or later)
 * `xarray <https://docs.xarray.dev>`_ (2024.1 or later)
 * `SQLAlchemy <https://www.sqlalchemy.org/>`_ (2.0 or later)
-* `MariaDB <https://mariadb.com>`_ (11.1 or later)
 * `MariaDB Connector for Python <https://mariadb.com/docs/connectors/connectors-quickstart-guides/connector-python-guide>`_
   (1.1 or later)
+
+Required external dependencies
+..............................
+
+These require manual installation.
+
+* Python (3.12 or later)
+* `MariaDB C Connector <https://mariadb.com/docs/connectors/connectors-quickstart-guides/mariadb-connector-c-guide>`_
 * A remote or local instance of `CroXe <https://codeberg.org/Kruayd/CroXe>`_
+
+.. important::
+
+   The MariaDB C Connector requirement it's only mandatory for the current
+   MariaDB Python Connector 1.1.14 release, or any previous one. With the
+   shortly upcoming 2.0 release, it will be possible to install MariaDB Python
+   Connector without any external dependency. If you are trying to install
+   PyCroXe and MariaDB Python Connector is still in its 1.1.14 release, please
+   install MariaDB C Connector first!
 
 Usage
 -----
