@@ -25,13 +25,10 @@ If you are looking for the database itself, visit:
 
 ## Installation
 
-At this development stage PyCroXe is not yet public on
-[PyPI](https://pypi.org/), hence just running `pip install pycroxe` won't work.
-You can, though, clone this repo to your machine and install PyCroXe from it:
+PyCroXe is publicly available on [PyPI](https://pypi.org/), so you can just:
 
 ```bash
-git clone https://codeberg.org/Kruayd/PyCroXe.git
-pip install ./PyCroXe
+pip install pycroxe
 ```
 
 > [!IMPORTANT]
